@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Logo from './components/logo';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('Logo', () => {
+  test('Logo must have src = "/astral_logo.png" and alt = "astral logo"', () => {
+    render(<Logo/>);
+    const logo = screen.getByRole('img');
+    expect(logo).toHaveAttribute('src', '/astral_logo.png');
+    expect(logo).toHaveAttribute('alt', 'astral logo');
+  });
 });
+
